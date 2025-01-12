@@ -16,6 +16,14 @@ const routes: Array<RouteRecordRaw> = [
             {
                 path: 'music',
                 component: () => import('@/views/music/Music.vue')
+            },
+            {
+                path: 'video',
+                component: () => import('@/views/video/Video.vue')
+            },
+            {
+                path: 'dj',
+                component: () => import('@/views/dj/Dj.vue')
             }
         ]
     }

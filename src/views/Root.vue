@@ -5,8 +5,7 @@
       </div>
       <div class="flex-1 flex flex-col ">
         <div class="h-14">
-          <!-- <Header/> -->
-           header
+          <Header />
         </div>
         <div class="flex-1 overflow-hidden">
           <ElScrollbar>
@@ -28,6 +27,7 @@
 
 <script setup lang="ts">
 import Menu from '@/components/layout/menu/Menu.vue'
+import Header from '@/components/layout/header/Header.vue'
 </script>
 
 <style scoped>
