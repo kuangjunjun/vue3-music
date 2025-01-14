@@ -12,6 +12,8 @@
     "@icon-park/vue-next": "^1.4.2",
     "axios": "^1.7.9",
     "element-plus": "^2.9.2",
+    "sass-embedded": "^1.83.3",
+    "swiper": "^11.2.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
@@ -21,6 +23,7 @@
     "@vue/tsconfig": "^0.7.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
+    "sass": "^1.49.9",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.6.2",
     "unplugin-auto-import": "^19.0.0",

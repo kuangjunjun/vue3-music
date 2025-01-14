@@ -7,8 +7,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Banner: typeof import('./src/components/common/Banner.vue')['default']
+    Coverplay: typeof import('./src/components/common/Coverplay.vue')['default']
+    CoverPlay: typeof import('./src/components/common/CoverPlay.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElDialog: typeof import('element-plus/es')['ElDialog']
+    ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElScrollbar: typeof import('element-plus/es')['ElScrollbar']
     Header: typeof import('./src/components/layout/header/Header.vue')['default']
@@ -17,6 +21,7 @@ declare module 'vue' {
     MenuList: typeof import('./src/components/layout/menu/MenuList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Title: typeof import('./src/components/common/Title.vue')['default']
     UseInfo: typeof import('./src/components/layout/header/UseInfo.vue')['default']
     UserInfo: typeof import('./src/components/layout/header/UserInfo.vue')['default']
   }
