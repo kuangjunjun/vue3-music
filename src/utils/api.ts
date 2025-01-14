@@ -1,5 +1,5 @@
 import http from "./http";
-import type { UserProfile } from "../models";
+import type { UserProfile, Banner, Personalized } from "../models";
 
 
 // 登录接口
@@ -11,6 +11,8 @@ export async function useLogin(phone: string, password: string) {
     }>('login/cellphone', {phone: phone, password: password})
 }
 
+
+// 登录状态
 export async function useLoginStatus() {
     return await http.get<{
         data: {
@@ -18,4 +20,15 @@ export async function useLoginStatus() {
             profile: UserProfile
         },
     }>("login/status")
+}
+
+// 轮播图
+export async function useBanner() {
+    const { banners } = await http.get<{ banners: Banner[] }>('/banner', { type: '1' })
+    return banners
+}
+
+export async function usePersonalized() {
+    const { result } = await http.get<{ result: Personalized[] }>('/personalized')
+    return result
 }
