@@ -1,5 +1,8 @@
 import http from "./http";
-import type { UserProfile, Banner, Personalized, PersonalizedNewSong, PersonalizedMv } from "../models";
+import type {
+    UserProfile, Banner, Personalized, PersonalizedNewSong,
+    PersonalizedMv, PersonalizedPrivateContent, DjProgram
+} from "../models";
 
 
 // 登录接口
@@ -44,3 +47,18 @@ export async function usePersonalizedMv() {
     const { result } = await http.get<{ result: PersonalizedMv[] }>('/personalized/mv')
     return result
 }
+
+// 独家放送
+export async function usePersonalizedPrivateContentList(limit: number = 10, offset: number = 0) {
+    const {result} = await http.get<{ result: PersonalizedPrivateContent[] }>('personalized/privatecontent/list', {
+        limit: limit,
+        offset: offset
+    })
+    return result
+}
+
+//推荐电台
+export async function usePersonalizedDjProgram() {
+    const {result} = await http.get<{ result: DjProgram[] }>('personalized/djprogram')
+    return result
+} 
