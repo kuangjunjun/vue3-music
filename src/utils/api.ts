@@ -1,7 +1,7 @@
 import http from "./http";
 import type {
     UserProfile, Banner, Personalized, PersonalizedNewSong,
-    PersonalizedMv, PersonalizedPrivateContent, DjProgram
+    PersonalizedMv, PersonalizedPrivateContent, DjProgram, TopListDetail
 } from "../models";
 
 
@@ -62,3 +62,9 @@ export async function usePersonalizedDjProgram() {
     const {result} = await http.get<{ result: DjProgram[] }>('personalized/djprogram')
     return result
 } 
+
+// 官方榜
+export async function useTopListDetail() {
+    const {list} = await http.get<{ list: TopListDetail[] }>('/toplist/detail')
+    return list
+}
