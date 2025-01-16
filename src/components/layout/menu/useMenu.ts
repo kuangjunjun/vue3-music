@@ -1,6 +1,6 @@
 import { Planet, Music, VideoOne, Fm, Like, Computer, DownloadThree, PlayTwo } from '@icon-park/vue-next'
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, watch } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 interface Menus{
     name: string;
@@ -15,7 +15,6 @@ interface Menu{
 }
 
 export function useMenu() {
-    const currentKey = ref<string>('discover')
     
     const menus = ref<Menus[]>([
         {
@@ -79,13 +78,22 @@ export function useMenu() {
     ])
 
     const router = useRouter()
+    const route = useRoute()
+    
+    const currentKey = ref(route.meta.menu)
+
+    watch(
+        () => route.meta.menu,
+        (menu) => {
+            currentKey.value = menu;
+        }
+    );
 
     const changeMenu = (menu: Menu) => {
-        currentKey.value = menu.key
-        router.push(`/${menu.key}`)
+        router.push(`/${menu.key}`)  
     }
 
-    return {
+    return { 
         menus,
         currentKey,
         changeMenu
